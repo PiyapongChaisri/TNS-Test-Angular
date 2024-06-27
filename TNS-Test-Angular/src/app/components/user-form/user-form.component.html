@@ -1,0 +1,19 @@
+<h2 class="my-4">{{ isEdit ? 'Edit' : 'Create' }} User</h2>
+<form (ngSubmit)="saveUser()">
+  <div class="form-group">
+    <label for="name">User Name</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="user.username" name="username" required>
+  </div>
+  <div class="form-group">
+    <label for="full_name">Full Name</label>
+    <input type="text" class="form-control" id="full_name" [(ngModel)]="user.full_name" name="full_name">
+  </div>
+  <div class="form-group">
+    <label for="department_id">Department</label>
+    <select class="form-control" id="department_id" [(ngModel)]="user.department_id" name="department_id">
+      <option *ngFor="let dept of departments" [value]="dept.department_id">{{ dept.department_name }}</option>
+    </select>
+  </div>
+  <button type="button" class="btn btn-default mt-3" [routerLink]="['/list_user']">Back</button>
+  <button type="submit" class="btn btn-primary mt-3">Save</button>
+</form>
